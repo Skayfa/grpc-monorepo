@@ -1,0 +1,4 @@
+dist/
+src/*
+!src/index.ts
+node_modules

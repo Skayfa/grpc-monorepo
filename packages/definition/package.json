@@ -1,0 +1,42 @@
+{
+  "name": "@skayfa/definition",
+  "version": "0.0.0",
+  "description": "The state transitions service definition",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "👇required package scripts": "",
+    "build": "pnpm run generate; unbuild;",
+    "clean": "rm -rf ./dist ./src/proto",
+    "dev": "nodemon -e proto --watch proto/ --exec \"pnpm run build\"",
+    "format": "buf format -w",
+    "lint": "buf lint",
+    "test": "echo \"@state-transitions/definition does not require test\"; exit 0;",
+    "typecheck": "echo \"@state-transitions/definition does not require typechecking\"; exit 0;",
+    "☝️ required package scripts": "",
+    "generate": "buf generate"
+  },
+  "dependencies": {
+    "@bufbuild/buf": "^1.30.1",
+    "@bufbuild/protobuf": "^1.8.0"
+  },
+  "devDependencies": {
+    "@bufbuild/protoc-gen-es": "^1.8.0",
+    "@connectrpc/connect": "^1.4.0",
+    "@connectrpc/protoc-gen-connect-es": "^1.4.0",
+    "nodemon": "2.0.22",
+    "unbuild": "1.2.0"
+  }
+}

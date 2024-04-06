@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package connectrpc.test.v1;
+
+message SayTestRequest {
+  string sentence = 1;
+}
+
+message SayTestResponse {
+  string sentence = 1;
+}
+
+service TestService {
+  rpc Say(SayTestRequest) returns (SayTestResponse) {}
+}

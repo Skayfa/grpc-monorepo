@@ -1,0 +1,37 @@
+{
+  "name": "api",
+  "version": "0.0.0",
+  "description": "The state transitions service",
+  "type": "module",
+  "module": "./index.js",
+  "scripts": {
+    "👇required package scripts": "",
+    "build": "unbuild",
+    "clean": "rm -rf ./dist",
+    "dev": "tsx watch src/index.ts",
+    "format": "echo \"@state-transitions/service `format` not implemented\"; exit 0;",
+    "lint": "echo \"@state-transitions/service `lint` not implemented\"; exit 0;",
+    "test": "echo \"@state-transitions/service `test` not implemented\"; exit 0;",
+    "typecheck": "tsc --noEmit",
+    "☝️ required package scripts": "",
+    "start": "node ./dist/index.mjs"
+  },
+  "dependencies": {
+    "@connectrpc/connect": "^1.4.0",
+    "@connectrpc/connect-fastify": "^1.4.0",
+    "@connectrpc/connect-node": "^1.4.0",
+    "@fastify/cors": "^9.0.1",
+    "@skayfa/database": "workspace:*",
+    "@skayfa/definition": "workspace:*",
+    "fastify": "^4.26.2",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.4"
+  },
+  "devDependencies": {
+    "@bufbuild/protobuf": "^1.8.0",
+    "unbuild": "1.2.0"
+  },
+  "peerDependencies": {
+    "@bufbuild/protobuf": "^1.8.0"
+  }
+}
