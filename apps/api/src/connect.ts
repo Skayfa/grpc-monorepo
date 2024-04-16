@@ -1,22 +1,12 @@
 import type { ConnectRouter } from "@connectrpc/connect";
-import { ElizaService, TestService } from "@skayfa/definition";
+import { AuthenticationService, ElizaService } from "@skayfa/definition";
+import { Eliza } from "./services/eliza-services";
+import { login, logout } from "./services/auth-service";
 
 export default (router: ConnectRouter) => {
-  // registers connectrpc.eliza.v1.ElizaService
-  router.service(ElizaService, {
-    // implements rpc Say
-    async say(req) {
-      return {
-        sentence: `You said: ${req.sentence}`,
-      };
-    },
-  });
-  router.service(TestService, {
-    // implements rpc Say
-    async say(req) {
-      return {
-        sentence: `You saidss: ${req.sentence}`,
-      };
-    },
+  router.service(ElizaService, new Eliza());
+  router.service(AuthenticationService, {
+    login,
+    logout,
   });
 };
