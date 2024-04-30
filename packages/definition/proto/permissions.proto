@@ -1,0 +1,53 @@
+// permissions.proto
+
+syntax = "proto3";
+
+package permissions;
+
+// Enums for roles
+enum Role {
+  ATHLETIC = 0;
+  TRAINER = 1;
+  GYM = 2;
+  ADMIN = 3;
+}
+
+// Enums for scopes
+enum Scope {
+  USER_PROFILE = 0;
+  SEARCH_TRAINERS = 1;
+  GYM_INFO = 2;
+  TRAINER_PROFILE = 3;
+  TRAINEE_DATA = 4;
+  CLIENT_DATA = 5;
+  GYM_PROFILE = 6;
+  CLASS_MANAGEMENT = 7;
+  ALL_DATA = 8;
+}
+
+// Enums for permissions
+enum Permission {
+  READ_SELF = 0;
+  UPDATE_SELF = 1;
+  READ_TRAINERS = 2;
+  REQUEST_TRAINER = 3;
+  READ_TRAINEES = 4;
+  MANAGE_CLIENTS = 5;
+  CREATE_PROGRAMS = 6;
+  TRACK_PROGRESS = 7;
+  COMMUNICATE = 8;
+  UPDATE_GYM_INFO = 9;
+  MANAGE_CLASSES = 10;
+  RECEIVE_FEEDBACK = 11;
+  APPROVE_TRAINERS = 12;
+  MANAGE_ALL_ACCOUNTS = 13;
+  UPDATE_RULES = 14;
+  RESOLVE_CONFLICTS = 15;
+}
+
+// Mapping roles to scopes and permissions
+message RolePermissions {
+  Role role = 1;
+  repeated Scope scopes = 2;
+  repeated Permission permissions = 3;
+}

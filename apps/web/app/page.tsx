@@ -8,8 +8,12 @@ export default function Page(): JSX.Element {
       <Button
         label="ddd"
         onClick={() => {
-          client.test.say({ sentence: "I feel happy." }).then((res) => {
+          client.eliza.say({ sentence: "I feel happy." }).then((res) => {
             console.log(res.sentence);
+          });
+
+          client.auth.login({ username: "jjj" }).then((res) => {
+            console.log(res.token);
           });
         }}
       />

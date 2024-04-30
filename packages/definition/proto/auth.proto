@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package auth;
+
+// The AuthenticationService provides RPCs for handling user authentication.
+service AuthenticationService {
+    // Login takes a LoginRequest and returns a LoginResponse.
+    rpc Login (LoginRequest) returns (LoginResponse);
+
+    // Logout takes a LogoutRequest and returns a LogoutResponse.
+    rpc Logout (LogoutRequest) returns (LogoutResponse);
+}
+
+// LoginRequest contains the fields necessary for a login attempt.
+message LoginRequest {
+    string username = 1;
+    string password = 2;
+}
+
+// LoginResponse contains the results of a login attempt.
+message LoginResponse {
+    bool success = 1;
+    string message = 2;  // Message could include error messages or a success message.
+    string token = 3;    // Auth token if login is successful.
+}
+
+// LogoutRequest contains the fields necessary for a logout attempt.
+message LogoutRequest {
+    string token = 1;
+}
+
+// LogoutResponse indicates the success or failure of a logout attempt.
+message LogoutResponse {
+    bool success = 1;
+    string message = 2;  // Message regarding the logout attempt.
+}

@@ -1,6 +1,6 @@
 import { createPromiseClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
-import { ElizaService, TestService } from "@skayfa/definition";
+import { AuthenticationService, ElizaService } from "@skayfa/definition";
 
 const transport = createConnectTransport({
   baseUrl: "http://localhost:8080",
@@ -10,7 +10,7 @@ const transport = createConnectTransport({
 
 const client = {
   eliza: createPromiseClient(ElizaService, transport),
-  test: createPromiseClient(TestService, transport),
+  auth: createPromiseClient(AuthenticationService, transport),
 };
 
 export default client;
